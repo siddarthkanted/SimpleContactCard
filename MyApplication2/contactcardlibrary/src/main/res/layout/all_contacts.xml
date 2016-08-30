@@ -5,8 +5,10 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/contactImageView"/>
+        android:layout_height="24dp"
+        android:id="@+id/contactImageView"
+        android:src="@drawable/defaultcontactimage"
+        />
 
     <TextView
         android:layout_width="match_parent"

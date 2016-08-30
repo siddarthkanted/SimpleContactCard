@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ImageIconSize">
+        <item name="android:layout_height">72dp</item>
+        <item name="android:layout_width">72dp</item>
+        <item name="android:layout_marginTop">14dp</item>
+    </style>
+
+
+
+    <style name="ImageIconSize24">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_marginTop">14dp</item>
+    </style>
+
+
+
+</resources>

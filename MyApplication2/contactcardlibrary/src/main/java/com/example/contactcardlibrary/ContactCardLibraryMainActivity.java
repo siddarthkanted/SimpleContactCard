@@ -29,6 +29,7 @@ public class ContactCardLibraryMainActivity extends AppCompatActivity {
 
     private EditText contactPersonName;
     private EditText contactPersonNumber;
+    private ContactListener contactListener;
 
     private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 1;
     private static final int WRITE_CONTACT_PERMISSION = 2;
@@ -196,5 +197,14 @@ public class ContactCardLibraryMainActivity extends AppCompatActivity {
                     matrix, true);
             imgView.setImageBitmap(rotated);
         }
+    }
+
+    public void registerContactListener(View view){
+        contactListener=new ContactListener(this, this);
+        getApplicationContext().getContentResolver().registerContentObserver(ContactsContract.Contacts.CONTENT_URI, true, contactListener);
+    }
+
+    private void unregisterContactListener(View view){
+        getApplicationContext().getContentResolver().unregisterContentObserver(contactListener);
     }
 }

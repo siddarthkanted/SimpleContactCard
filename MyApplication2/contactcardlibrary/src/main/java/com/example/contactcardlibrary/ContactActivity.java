@@ -61,11 +61,7 @@ public class ContactActivity extends AppCompatActivity {
             String name=phonesCursor.getString(phonesCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
             String phoneNumber = phonesCursor.getString(phonesCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
             String photoUriString = phonesCursor.getString(phonesCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.PHOTO_THUMBNAIL_URI));
-
-            if(photoUriString!=null){
-                Uri photoUri = Uri.parse(photoUriString);
-                contactDataList.add(new ContactData(photoUri, name, phoneNumber));
-            }
+            contactDataList.add(new ContactData(photoUriString, name, phoneNumber));
         }
         return contactDataList;
     }

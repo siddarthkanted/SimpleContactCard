@@ -68,7 +68,17 @@
         android:text="Go Back"
         android:onClick="backButtonClick"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="register for contact listener"
+        android:onClick="registerContactListener"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="unregister for contact listener"
+        android:onClick="unregisterContactListener"/>
 
 
 

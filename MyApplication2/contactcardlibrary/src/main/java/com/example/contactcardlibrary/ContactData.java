@@ -8,9 +8,9 @@ import android.net.Uri;
 public class ContactData {
     public String name;
     public String number;
-    public Uri uri;
+    public String uri;
 
-    public ContactData(Uri uri, String name, String number) {
+    public ContactData(String uri, String name, String number) {
         this.uri = uri;
         this.name = name;
         this.number = number;

@@ -1,6 +1,7 @@
 package com.example.contactcardlibrary;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -36,7 +37,7 @@ public class AllContactsAdapter extends ArrayAdapter<ContactData>{
             view = layoutInflater.inflate(layoutResource, null);
         }
 
-        ContactData contactData = getItem(position);
+        final ContactData contactData = getItem(position);
 
         if (contactData != null) {
             TextView nameTextView = (TextView) view.findViewById(R.id.nameTextView);
@@ -51,9 +52,22 @@ public class AllContactsAdapter extends ArrayAdapter<ContactData>{
                 numberTextView.setText(contactData.number);
             }
 
-            if (contactImageView != null) {
-                contactImageView.setImageURI(contactData.uri);
+            if (contactImageView != null && contactData.uri != null) {
+                Uri uri = Uri.parse(contactData.uri);
+                contactImageView.setImageURI(uri);
             }
+
+            view.setOnClickListener(new View.OnClickListener (){
+
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getContext(), RoundedContactCardActivity.class);
+                    intent.putExtra("contactName", contactData.name);
+                    intent.putExtra("contactNumber", contactData.number);
+                    intent.putExtra("contactImageUri", contactData.uri);
+                    getContext().startActivity(intent);
+                }
+            });
         }
 
         return view;
